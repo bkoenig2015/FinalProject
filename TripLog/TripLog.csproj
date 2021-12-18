@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200110201901_AddDestinationEntity.cs" />
+    <Compile Remove="Migrations\20200110201901_AddDestinationEntity.Designer.cs" />
+    <Compile Remove="Migrations\20200110203259_AddDestinationEntity.cs" />
+    <Compile Remove="Migrations\20200110203259_AddDestinationEntity.Designer.cs" />
+    <Compile Remove="Migrations\20200112021337_AddDestinationEntity.cs" />
+    <Compile Remove="Migrations\20200112021337_AddDestinationEntity.Designer.cs" />
+    <Compile Remove="Migrations\20200112021810_AddDestinationEntity.cs" />
+    <Compile Remove="Migrations\20200112021810_AddDestinationEntity.Designer.cs" />
+    <Compile Remove="Migrations\20200113184412_AddDestination.cs" />
+    <Compile Remove="Migrations\20200113184412_AddDestination.Designer.cs" />
+    <Compile Remove="Migrations\20200113192952_AddAccommodation.cs" />
+    <Compile Remove="Migrations\20200113192952_AddAccommodation.Designer.cs" />
+    <Compile Remove="Migrations\20200113193944_AddAccommodation.cs" />
+    <Compile Remove="Migrations\20200113193944_AddAccommodation.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
+  </ItemGroup>
+
+
+
+</Project>

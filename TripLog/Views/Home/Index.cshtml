@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Trip>
+
+@{
+    ViewBag.Title = "My Trip Log";
+}
+
+<a asp-action="Add" asp-controller="Trip" class="mt-2"><b>Add Trip</b></a>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Destination</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Accommodations</th>
+            <th>Things To Do</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Trip trip in Model)
+        {
+            <tr>
+                <td>@trip.Destination.Name</td>
+                <td>@trip.StartDate?.ToShortDateString()</td>
+                <td>@trip.EndDate?.ToShortDateString()</td>
+                <td>
+                    @if (trip.Accommodation != null)
+                    {
+                        <div>@trip.Accommodation.Name</div>
+                        @if (!string.IsNullOrEmpty(trip.Accommodation.Phone))
+                        {
+                            <div>Phone: @trip.Accommodation.Phone</div>
+                        }
+                        @if (!string.IsNullOrEmpty(trip.Accommodation.Email))
+                        {
+                            <div>Email: @trip.Accommodation.Email</div>
+                        }
+                    }
+                </td>
+                <td>
+                    @foreach (TripActivity ta in trip.TripActivities)
+                    {
+                        <div>@ta.Activity.Name</div>
+                    }
+                </td>
+                <td>
+                    <form asp-action="Delete" asp-controller="Trip">
+                         <button type="submit" name="id" value="@trip.TripId" 
+                                 class="btn btn-primary">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

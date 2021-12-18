@@ -1,0 +1,93 @@
+﻿@model ManageViewModel
+
+@{
+    ViewBag.Title = "Manage Destinations, Accommodations, and Activities";
+    ViewBag.SubHeader = ViewBag.Title;
+}
+
+<div class="row">
+    @* add column *@
+    <div class="col">
+        <fieldset class="form-group">
+            <legend>Add</legend>
+
+            <form asp-action="Add" method="post">
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label asp-for="Destination.Name">Destination</label>
+                            <input asp-for="Destination.Name" class="form-control" />
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label asp-for="Accommodation.Name">Accommodation Name</label>
+                            <input asp-for="Accommodation.Name" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Accommodation.Phone">Accommodation Phone</label>
+                            <input asp-for="Accommodation.Phone" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Accommodation.Email">Accommodation Email</label>
+                            <input asp-for="Accommodation.Email" class="form-control" />
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label asp-for="Activity.Name">Activity</label>
+                            <input asp-for="Activity.Name" class="form-control" />
+                        </div>
+                    </li>
+                </ul>
+
+                <button type="submit" class="btn btn-primary mt-2">Add</button>
+            </form>
+
+        </fieldset>
+    </div>
+
+    @* delete column *@
+<div class="col">
+    <fieldset class="form-group">
+        <legend>Delete</legend>
+
+        <form asp-action="Delete" method="post">
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <div class="form-group">
+                        <label asp-for="Destination.DestinationId">Destination</label>
+                        <select asp-for="Destination.DestinationId" class="form-control"
+                                asp-items="@(new SelectList(Model.Destinations, "DestinationId", "Name"))">
+                            <option></option>
+                        </select>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-group">
+                        <label asp-for="Accommodation.AccommodationId">Accommodation</label>
+                        <select asp-for="Accommodation.AccommodationId" class="form-control"
+                                asp-items="@(new SelectList(Model.Accommodations, "AccommodationId", "Name"))">
+                            <option></option>
+                        </select>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-group">
+                        <label asp-for="Activity.ActivityId">Activity</label>
+                        <select asp-for="Activity.ActivityId" class="form-control"
+                                asp-items="@(new SelectList(Model.Activities, "ActivityId", "Name"))">
+                            <option></option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+
+            <button type="submit" class="btn btn-primary mt-2">Delete</button>
+        </form>
+
+    </fieldset>
+</div>
+</div>
