@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wz/EXCZBm6O8XaKENbFAd1IJo3oh7UBQFUvkPGDa0jz09gpPOMRnMzZYCbjMKGVaTisar+rmbA5g+viNDTNvOg==",
+  "dgSpecHash": "B0e5qvF9Il7v2mQKII9GTs45D8blH2qTI8KVuxlvFpcaob8bRVfWpUKRyHLmSkz8MVRXVz4vNOKLITsTQL+ggQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Bradley Koenig\\Documents\\Homework\\12-1_TripLog\\TripLog\\TripLog.csproj",
+  "projectFilePath": "C:\\Users\\Bradley Koenig\\Documents\\Homework\\Ch12TripLogKoenig\\TripLog\\TripLog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bradley Koenig\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Bradley Koenig\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.0\\microsoft.aspnetcore.jsonpatch.3.1.0.nupkg.sha512",
