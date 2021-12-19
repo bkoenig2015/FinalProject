@@ -16,27 +16,27 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="form-group">
-                            <label asp-for="Destination.Name">Destination</label>
+                            <label asp-for="Destination.Name">Not needed</label>
                             <input asp-for="Destination.Name" class="form-control" />
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="form-group">
-                            <label asp-for="Accommodation.Name">Accommodation Name</label>
+                            <label asp-for="Accommodation.Name">Category</label>
                             <input asp-for="Accommodation.Name" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label asp-for="Accommodation.Phone">Accommodation Phone</label>
+                            <label asp-for="Accommodation.Phone">Not Needed</label>
                             <input asp-for="Accommodation.Phone" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <label asp-for="Accommodation.Email">Accommodation Email</label>
+                            <label asp-for="Accommodation.Email">Not Needed</label>
                             <input asp-for="Accommodation.Email" class="form-control" />
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="form-group">
-                            <label asp-for="Activity.Name">Activity</label>
+                            <label asp-for="Activity.Name"></label>
                             <input asp-for="Activity.Name" class="form-control" />
                         </div>
                     </li>
@@ -58,7 +58,7 @@
             <ul class="list-group">
                 <li class="list-group-item">
                     <div class="form-group">
-                        <label asp-for="Destination.DestinationId">Destination</label>
+                        <label asp-for="Destination.DestinationId">Not Needed</label>
                         <select asp-for="Destination.DestinationId" class="form-control"
                                 asp-items="@(new SelectList(Model.Destinations, "DestinationId", "Name"))">
                             <option></option>
@@ -67,7 +67,7 @@
                 </li>
                 <li class="list-group-item">
                     <div class="form-group">
-                        <label asp-for="Accommodation.AccommodationId">Accommodation</label>
+                        <label asp-for="Accommodation.AccommodationId">Category</label>
                         <select asp-for="Accommodation.AccommodationId" class="form-control"
                                 asp-items="@(new SelectList(Model.Accommodations, "AccommodationId", "Name"))">
                             <option></option>
@@ -76,7 +76,7 @@
                 </li>
                 <li class="list-group-item">
                     <div class="form-group">
-                        <label asp-for="Activity.ActivityId">Activity</label>
+                        <label asp-for="Activity.ActivityId">Not Needed</label>
                         <select asp-for="Activity.ActivityId" class="form-control"
                                 asp-items="@(new SelectList(Model.Activities, "ActivityId", "Name"))">
                             <option></option>
