@@ -9,11 +9,11 @@
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
-            <th>Destination</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>Accommodations</th>
-            <th>Things To Do</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Date Created</th>
+            <th>Due Date</th>
+            <th>Description</th>
             <th></th>
         </tr>
     </thead>
@@ -21,7 +21,7 @@
         @foreach (Trip trip in Model)
         {
             <tr>
-                <td>@trip.Destination.Name</td>
+                <td>@trip.Destination.Name</td> 
                 <td>@trip.StartDate?.ToShortDateString()</td>
                 <td>@trip.EndDate?.ToShortDateString()</td>
                 <td>
