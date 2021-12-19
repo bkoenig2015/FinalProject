@@ -7,6 +7,6 @@ namespace TripLog.Models
         public int DestinationId { get; set; }           // PK 
         public string Name { get; set; }
 
-        public ICollection<Trip> Trips { get; set; }     // navigation property
+        public ICollection<Note> Note { get; set; }     // navigation property
     }
 }

@@ -26,7 +26,7 @@ namespace TripLog
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<TripLogContext>(options =>
+            services.AddDbContext<NoteLogContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("TripLogContext")));
         }
 

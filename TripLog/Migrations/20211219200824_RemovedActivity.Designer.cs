@@ -10,8 +10,8 @@ using TripLog.Models;
 namespace TripLog.Migrations
 {
     [DbContext(typeof(NoteLogContext))]
-    [Migration("20200113194253_AddAccommodation")]
-    partial class AddAccommodation
+    [Migration("20211219200824_RemovedActivity")]
+    partial class RemovedActivity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -57,9 +57,9 @@ namespace TripLog.Migrations
                     b.ToTable("Destinations");
                 });
 
-            modelBuilder.Entity("TripLog.Models.Trip", b =>
+            modelBuilder.Entity("TripLog.Models.Note", b =>
                 {
-                    b.Property<int>("TripId")
+                    b.Property<int>("NoteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -78,33 +78,24 @@ namespace TripLog.Migrations
                         .IsRequired()
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("ThingToDo1")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ThingToDo2")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ThingToDo3")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TripId");
+                    b.HasKey("NoteId");
 
                     b.HasIndex("AccommodationId");
 
                     b.HasIndex("DestinationId");
 
-                    b.ToTable("Trips");
+                    b.ToTable("Notes");
                 });
 
-            modelBuilder.Entity("TripLog.Models.Trip", b =>
+            modelBuilder.Entity("TripLog.Models.Note", b =>
                 {
                     b.HasOne("TripLog.Models.Accommodation", "Accommodation")
-                        .WithMany("Trips")
+                        .WithMany("Notes")
                         .HasForeignKey("AccommodationId")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("TripLog.Models.Destination", "Destination")
-                        .WithMany("Trips")
+                        .WithMany("Note")
                         .HasForeignKey("DestinationId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();

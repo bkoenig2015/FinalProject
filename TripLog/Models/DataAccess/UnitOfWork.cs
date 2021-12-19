@@ -7,14 +7,14 @@ namespace TripLog.Models
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private TripLogContext context { get; set; }
-        public UnitOfWork(TripLogContext ctx) => context = ctx;
+        private NoteLogContext context { get; set; }
+        public UnitOfWork(NoteLogContext ctx) => context = ctx;
 
-        private Repository<Trip> trips;
-        public Repository<Trip> Trips {
+        private Repository<Note> notes;
+        public Repository<Note> Notes {
             get {
-                if (trips == null) trips = new Repository<Trip>(context);
-                return trips;
+                if (notes == null) notes = new Repository<Note>(context);
+                return notes;
             }
         }
 
@@ -31,14 +31,6 @@ namespace TripLog.Models
             get {
                 if (accommodations == null) accommodations = new Repository<Accommodation>(context);
                 return accommodations;
-            }
-        }
-
-        private Repository<Activity> activities;
-        public Repository<Activity> Activities {
-            get {
-                if (activities == null) activities = new Repository<Activity>(context);
-                return activities;
             }
         }
 

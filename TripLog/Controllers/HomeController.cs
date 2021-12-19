@@ -5,18 +5,18 @@ namespace TripLog.Controllers
 {
     public class HomeController : Controller
     {
-        private Repository<Trip> data { get; set; }
-        public HomeController(TripLogContext ctx) => data = new Repository<Trip>(ctx);
+        private Repository<Note> data { get; set; }
+        public HomeController(NoteLogContext ctx) => data = new Repository<Note>(ctx);
 
         public ViewResult Index()
         {
-            var options = new QueryOptions<Trip> { 
-                Includes = "Destination, Accommodation, TripActivities.Activity",
+            var options = new QueryOptions<Note> { 
+                Includes = "Destination, Accommodation",
                 OrderBy = t => t.StartDate
             };
 
-            var trips = data.List(options);
-            return View(trips);
+            var notes = data.List(options);
+            return View(notes);
         }
 
     }

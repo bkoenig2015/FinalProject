@@ -2,11 +2,9 @@
 {
     public interface IUnitOfWork
     {
-        Repository<Trip> Trips { get; }
+        Repository<Note> Notes { get; }
         Repository<Destination> Destinations { get; }
         Repository<Accommodation> Accommodations { get; }
-        Repository<Activity> Activities { get; }
-
         void Save();
     }
 }

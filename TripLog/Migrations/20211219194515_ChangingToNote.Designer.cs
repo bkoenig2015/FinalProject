@@ -9,9 +9,9 @@ using TripLog.Models;
 
 namespace TripLog.Migrations
 {
-    [DbContext(typeof(TripLogContext))]
-    [Migration("20200114012910_AddActivity")]
-    partial class AddActivity
+    [DbContext(typeof(NoteLogContext))]
+    [Migration("20211219194515_ChangingToNote")]
+    partial class ChangingToNote
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,9 +72,9 @@ namespace TripLog.Migrations
                     b.ToTable("Destinations");
                 });
 
-            modelBuilder.Entity("TripLog.Models.Trip", b =>
+            modelBuilder.Entity("TripLog.Models.Note", b =>
                 {
-                    b.Property<int>("TripId")
+                    b.Property<int>("NoteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -93,55 +93,55 @@ namespace TripLog.Migrations
                         .IsRequired()
                         .HasColumnType("datetime2");
 
-                    b.HasKey("TripId");
+                    b.HasKey("NoteId");
 
                     b.HasIndex("AccommodationId");
 
                     b.HasIndex("DestinationId");
 
-                    b.ToTable("Trips");
+                    b.ToTable("Notes");
                 });
 
-            modelBuilder.Entity("TripLog.Models.TripActivity", b =>
+            modelBuilder.Entity("TripLog.Models.NoteCategory", b =>
                 {
-                    b.Property<int>("TripId")
+                    b.Property<int>("NoteId")
                         .HasColumnType("int");
 
                     b.Property<int>("ActivityId")
                         .HasColumnType("int");
 
-                    b.HasKey("TripId", "ActivityId");
+                    b.HasKey("NoteId", "ActivityId");
 
                     b.HasIndex("ActivityId");
 
-                    b.ToTable("TripActivity");
+                    b.ToTable("NoteCategory");
                 });
 
-            modelBuilder.Entity("TripLog.Models.Trip", b =>
+            modelBuilder.Entity("TripLog.Models.Note", b =>
                 {
                     b.HasOne("TripLog.Models.Accommodation", "Accommodation")
-                        .WithMany("Trips")
+                        .WithMany("Notes")
                         .HasForeignKey("AccommodationId")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("TripLog.Models.Destination", "Destination")
-                        .WithMany("Trips")
+                        .WithMany("Note")
                         .HasForeignKey("DestinationId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("TripLog.Models.TripActivity", b =>
+            modelBuilder.Entity("TripLog.Models.NoteCategory", b =>
                 {
                     b.HasOne("TripLog.Models.Activity", "Activity")
-                        .WithMany("TripActivities")
+                        .WithMany("NoteCategories")
                         .HasForeignKey("ActivityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("TripLog.Models.Trip", "Trip")
-                        .WithMany("TripActivities")
-                        .HasForeignKey("TripId")
+                    b.HasOne("TripLog.Models.Note", "Note")
+                        .WithMany("NoteCategories")
+                        .HasForeignKey("NoteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

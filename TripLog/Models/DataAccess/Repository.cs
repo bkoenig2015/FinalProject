@@ -6,14 +6,15 @@ namespace TripLog.Models
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        protected TripLogContext context { get; set; }
+        protected NoteLogContext context { get; set; }
         private DbSet<T> dbset { get; set; }
 
-        public Repository(TripLogContext ctx) {
+        public Repository(NoteLogContext ctx) {
             context = ctx;
             dbset = context.Set<T>();
         }
 
+        //the main thing causing issues
         public virtual IEnumerable<T> List(QueryOptions<T> options) {
             IQueryable<T> query = BuildQuery(options);
             return query.ToList();

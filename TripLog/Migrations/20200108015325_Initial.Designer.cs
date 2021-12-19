@@ -9,7 +9,7 @@ using TripLog.Models;
 
 namespace TripLog.Migrations
 {
-    [DbContext(typeof(TripLogContext))]
+    [DbContext(typeof(NoteLogContext))]
     [Migration("20200108015325_Initial")]
     partial class Initial
     {

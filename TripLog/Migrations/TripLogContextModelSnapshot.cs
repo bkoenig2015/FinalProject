@@ -8,7 +8,7 @@ using TripLog.Models;
 
 namespace TripLog.Migrations
 {
-    [DbContext(typeof(TripLogContext))]
+    [DbContext(typeof(NoteLogContext))]
     partial class TripLogContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -40,21 +40,6 @@ namespace TripLog.Migrations
                     b.ToTable("Accommodations");
                 });
 
-            modelBuilder.Entity("TripLog.Models.Activity", b =>
-                {
-                    b.Property<int>("ActivityId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ActivityId");
-
-                    b.ToTable("Activities");
-                });
-
             modelBuilder.Entity("TripLog.Models.Destination", b =>
                 {
                     b.Property<int>("DestinationId")
@@ -70,9 +55,9 @@ namespace TripLog.Migrations
                     b.ToTable("Destinations");
                 });
 
-            modelBuilder.Entity("TripLog.Models.Trip", b =>
+            modelBuilder.Entity("TripLog.Models.Note", b =>
                 {
-                    b.Property<int>("TripId")
+                    b.Property<int>("NoteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -91,56 +76,26 @@ namespace TripLog.Migrations
                         .IsRequired()
                         .HasColumnType("datetime2");
 
-                    b.HasKey("TripId");
+                    b.HasKey("NoteId");
 
                     b.HasIndex("AccommodationId");
 
                     b.HasIndex("DestinationId");
 
-                    b.ToTable("Trips");
+                    b.ToTable("Notes");
                 });
 
-            modelBuilder.Entity("TripLog.Models.TripActivity", b =>
-                {
-                    b.Property<int>("TripId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ActivityId")
-                        .HasColumnType("int");
-
-                    b.HasKey("TripId", "ActivityId");
-
-                    b.HasIndex("ActivityId");
-
-                    b.ToTable("TripActivity");
-                });
-
-            modelBuilder.Entity("TripLog.Models.Trip", b =>
+            modelBuilder.Entity("TripLog.Models.Note", b =>
                 {
                     b.HasOne("TripLog.Models.Accommodation", "Accommodation")
-                        .WithMany("Trips")
+                        .WithMany("Notes")
                         .HasForeignKey("AccommodationId")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.HasOne("TripLog.Models.Destination", "Destination")
-                        .WithMany("Trips")
+                        .WithMany("Note")
                         .HasForeignKey("DestinationId")
                         .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("TripLog.Models.TripActivity", b =>
-                {
-                    b.HasOne("TripLog.Models.Activity", "Activity")
-                        .WithMany("TripActivities")
-                        .HasForeignKey("ActivityId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TripLog.Models.Trip", "Trip")
-                        .WithMany("TripActivities")
-                        .HasForeignKey("TripId")
-                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

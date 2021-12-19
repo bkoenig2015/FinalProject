@@ -9,7 +9,7 @@ using TripLog.Models;
 
 namespace TripLog.Migrations
 {
-    [DbContext(typeof(TripLogContext))]
+    [DbContext(typeof(NoteLogContext))]
     [Migration("20200113190309_AddDestination")]
     partial class AddDestination
     {

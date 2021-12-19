@@ -1,7 +1,7 @@
 ﻿@model ManageViewModel
 
 @{
-    ViewBag.Title = "Manage Destinations, Accommodations, and Activities";
+    ViewBag.Title = "Manage Categories";
     ViewBag.SubHeader = ViewBag.Title;
 }
 
@@ -34,12 +34,6 @@
                             <input asp-for="Accommodation.Email" class="form-control" />
                         </div>
                     </li>
-                    <li class="list-group-item">
-                        <div class="form-group">
-                            <label asp-for="Activity.Name"></label>
-                            <input asp-for="Activity.Name" class="form-control" />
-                        </div>
-                    </li>
                 </ul>
 
                 <button type="submit" class="btn btn-primary mt-2">Add</button>
@@ -70,15 +64,6 @@
                         <label asp-for="Accommodation.AccommodationId">Category</label>
                         <select asp-for="Accommodation.AccommodationId" class="form-control"
                                 asp-items="@(new SelectList(Model.Accommodations, "AccommodationId", "Name"))">
-                            <option></option>
-                        </select>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="form-group">
-                        <label asp-for="Activity.ActivityId">Not Needed</label>
-                        <select asp-for="Activity.ActivityId" class="form-control"
-                                asp-items="@(new SelectList(Model.Activities, "ActivityId", "Name"))">
                             <option></option>
                         </select>
                     </div>

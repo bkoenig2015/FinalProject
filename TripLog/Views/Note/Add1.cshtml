@@ -1,8 +1,8 @@
-﻿@model TripViewModel
+﻿@model NoteViewModel
 
 @{
-    ViewBag.Title = "Add Trip - Page 1";
-    ViewBag.SubHeader = "Add Trip Destination and Dates";
+    ViewBag.Title = "Add Note Info";
+    ViewBag.SubHeader = "Add Note Information";
 }
 
 <div asp-validation-summary="All" class="text-danger"></div>
@@ -11,34 +11,34 @@
     <input type="hidden" asp-for="PageNumber" />
 
     <div class="form-group">
-        <label asp-for="Trip.DestinationId">Title</label>
+        <label asp-for="Note.DestinationId">Title</label>
         <a asp-action="Index" asp-controller="Manage" class="ml-4">Manage destinations</a>
-        <select asp-for="Trip.DestinationId" class="form-control"
+        <select asp-for="Note.DestinationId" class="form-control"
                 asp-items="@(new SelectList(Model.Destinations, "DestinationId", "Name"))">
             <option value="0"></option>
         </select>
     </div>
 
     <div class="form-group">
-        <label asp-for="Trip.AccommodationId">Category</label>
+        <label asp-for="Note.AccommodationId">Category</label>
         <a asp-action="Index" asp-controller="Manage" class="ml-4">Manage accommodations</a>
-        <select asp-for="Trip.AccommodationId" class="form-control"
+        <select asp-for="Note.AccommodationId" class="form-control"
                 asp-items="@(new SelectList(Model.Accommodations, "AccommodationId", "Name"))">
             <option value="0"></option>
         </select>
     </div>
 
     <div class="form-group">
-        <label asp-for="Trip.StartDate">To be Removed</label>
-        <input type="text" asp-for="Trip.StartDate" class="form-control" />
+        <label asp-for="Note.StartDate">To be Removed (start)</label>
+        <input type="text" asp-for="Note.StartDate" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Trip.EndDate">Due Date</label>
-        <input type="text" asp-for="Trip.EndDate" class="form-control" />
+        <label asp-for="Note.EndDate">Due Date (end)</label>
+        <input type="text" asp-for="Note.EndDate" class="form-control" />
     </div>
     <div>
-        <button type="submit" class="btn btn-dark">Next</button>
+        <button type="submit" class="btn btn-dark">Submit</button>
         <a asp-action="Cancel" class="btn btn-outline-dark">Cancel</a>
     </div>
 </form>

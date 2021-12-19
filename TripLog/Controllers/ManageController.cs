@@ -7,7 +7,7 @@ namespace TripLog.Controllers
     public class ManageController : Controller
     {
         private UnitOfWork data { get; set; }
-        public ManageController(TripLogContext ctx) => data = new UnitOfWork(ctx);
+        public ManageController(NoteLogContext ctx) => data = new UnitOfWork(ctx);
 
         [HttpGet]
         public ViewResult Index()
@@ -33,12 +33,6 @@ namespace TripLog.Controllers
                 notifyMsg = $"{notifyMsg} {vm.Accommodation.Name}, ";
                 needsSave = true;
             }
-            if (!string.IsNullOrEmpty(vm.Activity.Name)) {
-                data.Activities.Insert(vm.Activity);
-                notifyMsg = $"{notifyMsg} {vm.Activity.Name}, ";
-                needsSave = true;
-            }
-
             if (needsSave) {
                 data.Save();
                 TempData["message"] = notifyMsg + " added";
@@ -70,13 +64,6 @@ namespace TripLog.Controllers
                 notifyMsg = $"{notifyMsg} {vm.Accommodation.Name}, ";
                 needsSave = true;
             }
-            if (vm.Activity.ActivityId > 0) {
-                vm.Activity = data.Activities.Get(vm.Activity.ActivityId);
-                data.Activities.Delete(vm.Activity);
-                notifyMsg = $"{notifyMsg} {vm.Activity.Name}, ";
-                needsSave = true;
-            }
-
             /**************************************************************************************
              * If try to delete a destination that's associated with a trip, will get an exception,
              * bc FK delete behavior is set to Restrict. No exception for an accommodation, bc FK
@@ -108,9 +95,7 @@ namespace TripLog.Controllers
             vm.Accommodations = data.Accommodations.List(new QueryOptions<Accommodation> {
                 OrderBy = a => a.Name
             });
-            vm.Activities = data.Activities.List(new QueryOptions<Activity> { 
-                OrderBy = a => a.Name
-            });
+            
         }
     }
 }

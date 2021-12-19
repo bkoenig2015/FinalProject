@@ -1,10 +1,10 @@
-﻿@model IEnumerable<Trip>
+﻿@model IEnumerable<Note>
 
 @{
-    ViewBag.Title = "My Trip Log";
+    ViewBag.Title = "Group 2's Final Project";
 }
 
-<a asp-action="Add" asp-controller="Trip" class="mt-2"><b>Add Trip</b></a>
+<a asp-action="Add" asp-controller="Note" class="mt-2"><b>Add Note</b></a>
 
 <table class="table table-bordered table-striped">
     <thead>
@@ -18,35 +18,29 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Trip trip in Model)
+        @foreach (Note note in Model)
         {
             <tr>
-                <td>@trip.Destination.Name</td> 
-                <td>@trip.StartDate?.ToShortDateString()</td>
-                <td>@trip.EndDate?.ToShortDateString()</td>
+                <td>@note.Destination.Name</td> 
+                <td>@note.StartDate?.ToShortDateString()</td>
+                <td>@note.EndDate?.ToShortDateString()</td>
                 <td>
-                    @if (trip.Accommodation != null)
+                    @if (note.Accommodation != null)
                     {
-                        <div>@trip.Accommodation.Name</div>
-                        @if (!string.IsNullOrEmpty(trip.Accommodation.Phone))
+                        <div>@note.Accommodation.Name</div>
+                        @if (!string.IsNullOrEmpty(note.Accommodation.Phone))
                         {
-                            <div>Phone: @trip.Accommodation.Phone</div>
+                            <div>Phone: @note.Accommodation.Phone</div>
                         }
-                        @if (!string.IsNullOrEmpty(trip.Accommodation.Email))
+                        @if (!string.IsNullOrEmpty(note.Accommodation.Email))
                         {
-                            <div>Email: @trip.Accommodation.Email</div>
+                            <div>Email: @note.Accommodation.Email</div>
                         }
                     }
                 </td>
                 <td>
-                    @foreach (TripActivity ta in trip.TripActivities)
-                    {
-                        <div>@ta.Activity.Name</div>
-                    }
-                </td>
-                <td>
-                    <form asp-action="Delete" asp-controller="Trip">
-                         <button type="submit" name="id" value="@trip.TripId" 
+                    <form asp-action="Delete" asp-controller="Note">
+                         <button type="submit" name="id" value="@note.NoteId" 
                                  class="btn btn-primary">Delete</button>
                     </form>
                 </td>

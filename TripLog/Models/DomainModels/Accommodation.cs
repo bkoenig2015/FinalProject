@@ -9,6 +9,6 @@ namespace TripLog.Models
         public string Phone { get; set; }
         public string Email { get; set; }
 
-        public ICollection<Trip> Trips { get; set; }          // navigation property
+        public ICollection<Note> Notes { get; set; }          // navigation property
     }
 }
