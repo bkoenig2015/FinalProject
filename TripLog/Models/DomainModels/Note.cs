@@ -18,7 +18,7 @@ namespace TripLog.Models
 
         public DateTime DateCreated { get; set; }
 
-        [Required(ErrorMessage = "Please enter the date your note is due.")]
+        [Required(ErrorMessage = "Please enter the date your note needs to be done with.")]
         public DateTime? DueDate { get; set; }
 
         public string Title { get; set; }    
