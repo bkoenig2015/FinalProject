@@ -9,14 +9,14 @@ namespace NoteApp.Models
     {
         public int NoteId { get; set; }                     // PK
 
-        [Range(1, 9999999, ErrorMessage = "Please select a destination.")]
+        [Range(1, 9999999, ErrorMessage = "Please select a Category.")]
         public int CategoryId { get; set; }              // FK 
         public Category Category { get; set; }        // navigation property
 
 
         public string Description { get; set; }
 
-        [Required(ErrorMessage = "Please enter the date your creating this note.")]
+        [Required(ErrorMessage = "Please enter the Date your creating this Note on.")]
         public DateTime? DateCreated { get; set; }
 
         [Required(ErrorMessage = "Please enter the date your note needs to be done with.")]

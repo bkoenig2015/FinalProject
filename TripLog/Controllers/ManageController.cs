@@ -41,14 +41,14 @@ namespace NoteApp.Controllers
         public IActionResult Delete(ManageViewModel vm)
         {
             bool needsSave = false;
-            string notifyMsg = "";
+            string NotifyMsg = "";
 
             
 
             if (vm.Category.CategoryId > 0) {
                 vm.Category = data.Categories.Get(vm.Category.CategoryId);
                 data.Categories.Delete(vm.Category);
-                notifyMsg = $"{notifyMsg} {vm.Category.Name}, ";
+                NotifyMsg = $"{NotifyMsg} {vm.Category.Name}, ";
                 needsSave = true;
             }
 
@@ -57,7 +57,7 @@ namespace NoteApp.Controllers
             if (needsSave) {
                 try {
                     data.Save();
-                    TempData["message"] = notifyMsg + " deleted";
+                    TempData["message"] = NotifyMsg + " deleted";
                 } 
                 catch {
                     TempData["message"] = $"Unable to delete {vm.Category.Name} because it's associated with a Note.";
