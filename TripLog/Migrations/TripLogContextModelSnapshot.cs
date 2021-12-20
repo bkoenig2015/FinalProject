@@ -19,30 +19,24 @@ namespace TripLog.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("TripLog.Models.Accommodation", b =>
+            modelBuilder.Entity("NoteApp.Models.DomainModels.Description", b =>
                 {
-                    b.Property<int>("AccommodationId")
+                    b.Property<int>("DescriptionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("DescriptionId");
 
-                    b.HasKey("AccommodationId");
-
-                    b.ToTable("Accommodations");
+                    b.ToTable("Description");
                 });
 
-            modelBuilder.Entity("TripLog.Models.Destination", b =>
+            modelBuilder.Entity("TripLog.Models.Category", b =>
                 {
-                    b.Property<int>("DestinationId")
+                    b.Property<int>("CategoryId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -50,7 +44,7 @@ namespace TripLog.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("DestinationId");
+                    b.HasKey("CategoryId");
 
                     b.ToTable("Destinations");
                 });
@@ -62,41 +56,65 @@ namespace TripLog.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AccommodationId")
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("DestinationId")
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DescriptionId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("EndDate")
+                    b.Property<DateTime?>("DueDate")
                         .IsRequired()
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime?>("StartDate")
-                        .IsRequired()
-                        .HasColumnType("datetime2");
+                    b.Property<int?>("TitleId")
+                        .HasColumnType("int");
 
                     b.HasKey("NoteId");
 
-                    b.HasIndex("AccommodationId");
+                    b.HasIndex("CategoryId");
 
-                    b.HasIndex("DestinationId");
+                    b.HasIndex("DescriptionId");
+
+                    b.HasIndex("TitleId");
 
                     b.ToTable("Notes");
                 });
 
+            modelBuilder.Entity("TripLog.Models.Title", b =>
+                {
+                    b.Property<int>("TitleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("TitleId");
+
+                    b.ToTable("Title");
+                });
+
             modelBuilder.Entity("TripLog.Models.Note", b =>
                 {
-                    b.HasOne("TripLog.Models.Accommodation", "Accommodation")
-                        .WithMany("Notes")
-                        .HasForeignKey("AccommodationId")
-                        .OnDelete(DeleteBehavior.SetNull);
-
-                    b.HasOne("TripLog.Models.Destination", "Destination")
+                    b.HasOne("TripLog.Models.Category", "Category")
                         .WithMany("Note")
-                        .HasForeignKey("DestinationId")
+                        .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("NoteApp.Models.DomainModels.Description", "Description")
+                        .WithMany("Notes")
+                        .HasForeignKey("DescriptionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TripLog.Models.Title", "Title")
+                        .WithMany("Notes")
+                        .HasForeignKey("TitleId");
                 });
 #pragma warning restore 612, 618
         }
