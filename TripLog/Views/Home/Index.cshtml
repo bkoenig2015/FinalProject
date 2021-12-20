@@ -25,7 +25,7 @@
             <td>@note.Title</td>
             <td>@note.Category.Name</td>
             <td>@note.Description</td>
-            <td>@note.DateCreated.ToShortDateString()</td>
+            <td>@note.DateCreated?.ToShortDateString()</td>
             <td>@note.DueDate?.ToShortDateString()</td>
 
             <td>
