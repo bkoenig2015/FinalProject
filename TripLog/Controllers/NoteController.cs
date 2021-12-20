@@ -22,8 +22,8 @@ namespace TripLog.Controllers
                 vm.PageNumber = 2;
 
                 // get destination name for display by view
-                int destId = (int)TempData.Peek(nameof(Note.DestinationId));
-                vm.DestinationName = data.Destinations.Get(destId).Name;
+                int destId = (int)TempData.Peek(nameof(Note.CategoryId));
+                vm.CategoryName = data.Categories.Get(destId).Name;
 
                 // get data for drop-down
                 
@@ -34,14 +34,11 @@ namespace TripLog.Controllers
                 vm.PageNumber = 1;
 
                 // get data for drop-downs
-                vm.Destinations = data.Destinations.List(new QueryOptions<Destination>
+                vm.Categories = data.Categories.List(new QueryOptions<Category>
                 {
                     OrderBy = d => d.Name
                 });
-                vm.Accommodations = data.Accommodations.List(new QueryOptions<Accommodation>
-                {
-                    OrderBy = a => a.Name
-                });
+                
 
                 return View("Add1", vm);
             }
@@ -55,27 +52,24 @@ namespace TripLog.Controllers
                 if (ModelState.IsValid) // only page 1 has required data
                 {
                     // Store data in TempData 
-                    TempData[nameof(Note.DestinationId)] = vm.Note.DestinationId;
-                    TempData[nameof(Note.StartDate)] = vm.Note.StartDate;
-                    TempData[nameof(Note.EndDate)] = vm.Note.EndDate;
+                    TempData[nameof(Note.CategoryId)] = vm.Note.CategoryId;
+                    TempData[nameof(Note.DateCreated)] = vm.Note.DateCreated;
+                    TempData[nameof(Note.DueDate)] = vm.Note.DueDate;
 
                     // only store accommodation if user has selected an item from the drop-down
-                    if (vm.Note.AccommodationId > 0)
-                        TempData[nameof(Note.AccommodationId)] = vm.Note.AccommodationId;
+                    if (vm.Note.TitleId > 0)
+                        TempData[nameof(Note.TitleId)] = vm.Note.TitleId;
 
                     return RedirectToAction("Add", new { id = "Page2" });
                 }
                 else
                 {
                     // get data for drop-downs
-                    vm.Destinations = data.Destinations.List(new QueryOptions<Destination>
+                    vm.Categories = data.Categories.List(new QueryOptions<Category>
                     {
                         OrderBy = d => d.Name
                     });
-                    vm.Accommodations = data.Accommodations.List(new QueryOptions<Accommodation>
-                    {
-                        OrderBy = a => a.Name
-                    });
+                    
 
                     return View("Add1", vm);
                 }
@@ -85,13 +79,13 @@ namespace TripLog.Controllers
                 // get saved data from TempData 
                 vm.Note = new Note
                 {
-                    DestinationId = (int)TempData[nameof(Note.DestinationId)],
-                    StartDate = (DateTime)TempData[nameof(Note.StartDate)],
-                    EndDate = (DateTime)TempData[nameof(Note.EndDate)]
+                    CategoryId = (int)TempData[nameof(Note.CategoryId)],
+                    DateCreated = (DateTime)TempData[nameof(Note.DateCreated)],
+                    DueDate = (DateTime)TempData[nameof(Note.DueDate)]
                 };
                 // only get accommodation if there's something in TempData
-                if (TempData.Keys.Contains(nameof(Note.AccommodationId)))
-                    vm.Note.AccommodationId = (int)TempData[nameof(Note.AccommodationId)];
+                if (TempData.Keys.Contains(nameof(Note.TitleId)))
+                    vm.Note.TitleId = (int)TempData[nameof(Note.TitleId)];
 
                 
 
@@ -99,7 +93,7 @@ namespace TripLog.Controllers
                 data.Save();
 
                 // get destination data for notification message
-                var dest = data.Destinations.Get(vm.Note.DestinationId);
+                var dest = data.Categories.Get(vm.Note.CategoryId);
                 TempData["message"] = $"Trip to {dest.Name} added.";
 
                 return RedirectToAction("Index", "Home");
@@ -120,10 +114,10 @@ namespace TripLog.Controllers
         [HttpPost]
         public RedirectToActionResult Delete(int id)
         {
-            Note trip = data.Notes.Get(id);
-            Destination dest = data.Destinations.Get(trip.DestinationId); // for notification message
+            Note note = data.Notes.Get(id);
+            Category dest = data.Categories.Get(note.CategoryId); // for notification message
 
-            data.Notes.Delete(trip);
+            data.Notes.Delete(note);
             data.Save();
 
             TempData["message"] = $"Trip to {dest.Name} deleted.";

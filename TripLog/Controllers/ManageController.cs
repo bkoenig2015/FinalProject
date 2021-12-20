@@ -23,14 +23,20 @@ namespace TripLog.Controllers
             bool needsSave = false;
             string notifyMsg = "";
 
-            if (!string.IsNullOrEmpty(vm.Destination.Name)) {
-                data.Destinations.Insert(vm.Destination);
-                notifyMsg = $"{notifyMsg} {vm.Destination.Name}, ";
+            if (!string.IsNullOrEmpty(vm.Category.Name)) {
+                data.Categories.Insert(vm.Category);
+                notifyMsg = $"{notifyMsg} {vm.Category.Name}, ";
                 needsSave = true;
             }
-            if (!string.IsNullOrEmpty(vm.Accommodation.Name)) {
-                data.Accommodations.Insert(vm.Accommodation);
-                notifyMsg = $"{notifyMsg} {vm.Accommodation.Name}, ";
+            if (!string.IsNullOrEmpty(vm.Title.Name)) {
+                data.Titles.Insert(vm.Title);
+                notifyMsg = $"{notifyMsg} {vm.Title.Name}, ";
+                needsSave = true;
+            }
+            if (!string.IsNullOrEmpty(vm.Description.Name))
+            {
+                data.Descriptions.Insert(vm.Description);
+                notifyMsg = $"{notifyMsg} {vm.Description.Name}, ";
                 needsSave = true;
             }
             if (needsSave) {
@@ -52,16 +58,23 @@ namespace TripLog.Controllers
              * so have Name value for notification message
              ******************************************************/
 
-            if (vm.Destination.DestinationId > 0) {
-                vm.Destination = data.Destinations.Get(vm.Destination.DestinationId);
-                data.Destinations.Delete(vm.Destination);
-                notifyMsg = $"{notifyMsg} {vm.Destination.Name}, ";
+            if (vm.Category.CategoryId > 0) {
+                vm.Category = data.Categories.Get(vm.Category.CategoryId);
+                data.Categories.Delete(vm.Category);
+                notifyMsg = $"{notifyMsg} {vm.Category.Name}, ";
                 needsSave = true;
             }
-            if (vm.Accommodation.AccommodationId > 0) {
-                vm.Accommodation = data.Accommodations.Get(vm.Accommodation.AccommodationId);
-                data.Accommodations.Delete(vm.Accommodation);
-                notifyMsg = $"{notifyMsg} {vm.Accommodation.Name}, ";
+            if (vm.Title.TitleId > 0) {
+                vm.Title = data.Titles.Get(vm.Title.TitleId);
+                data.Titles.Delete(vm.Title);
+                notifyMsg = $"{notifyMsg} {vm.Title.Name}, ";
+                needsSave = true;
+            }
+            if (vm.Description.DescriptionId > 0)
+            {
+                vm.Description = data.Descriptions.Get(vm.Description.DescriptionId);
+                data.Descriptions.Delete(vm.Description);
+                notifyMsg = $"{notifyMsg} {vm.Description.Name}, ";
                 needsSave = true;
             }
             /**************************************************************************************
@@ -76,7 +89,7 @@ namespace TripLog.Controllers
                     TempData["message"] = notifyMsg + " deleted";
                 } 
                 catch {
-                    TempData["message"] = $"Unable to delete {vm.Destination.Name} because it's associated with a Trip.";
+                    TempData["message"] = $"Unable to delete {vm.Category.Name} because it's associated with a Note.";
                     LoadDropDownData(vm);
                     return View("Index", vm);
                 }
@@ -89,13 +102,10 @@ namespace TripLog.Controllers
 
         private void LoadDropDownData(ManageViewModel vm)
         {
-            vm.Destinations = data.Destinations.List(new QueryOptions<Destination> {
+            vm.Categories = data.Categories.List(new QueryOptions<Category> {
                 OrderBy = d => d.Name
             });
-            vm.Accommodations = data.Accommodations.List(new QueryOptions<Accommodation> {
-                OrderBy = a => a.Name
-            });
-            
+           
         }
     }
 }
