@@ -55,10 +55,12 @@ namespace TripLog.Controllers
                     TempData[nameof(Note.CategoryId)] = vm.Note.CategoryId;
                     TempData[nameof(Note.DateCreated)] = vm.Note.DateCreated;
                     TempData[nameof(Note.DueDate)] = vm.Note.DueDate;
+                    TempData[nameof(Note.Title)] = vm.Note.Title;
+                    TempData[nameof(Note.Description)] = vm.Note.Description;
+
 
                     // only store accommodation if user has selected an item from the drop-down
-                    if (vm.Note.TitleId > 0)
-                        TempData[nameof(Note.TitleId)] = vm.Note.TitleId;
+
 
                     return RedirectToAction("Add", new { id = "Page2" });
                 }
@@ -81,11 +83,14 @@ namespace TripLog.Controllers
                 {
                     CategoryId = (int)TempData[nameof(Note.CategoryId)],
                     DateCreated = (DateTime)TempData[nameof(Note.DateCreated)],
-                    DueDate = (DateTime)TempData[nameof(Note.DueDate)]
+                    DueDate = (DateTime)TempData[nameof(Note.DueDate)],
+                    Title = (string)TempData[nameof(Note.Title)],
+                    Description = (string)TempData[nameof(Note.Description)],
+
+
                 };
                 // only get accommodation if there's something in TempData
-                if (TempData.Keys.Contains(nameof(Note.TitleId)))
-                    vm.Note.TitleId = (int)TempData[nameof(Note.TitleId)];
+                
 
                 
 
@@ -94,7 +99,7 @@ namespace TripLog.Controllers
 
                 // get destination data for notification message
                 var dest = data.Categories.Get(vm.Note.CategoryId);
-                TempData["message"] = $"Trip to {dest.Name} added.";
+                TempData["message"] = $"Note to {dest.Name} added.";
 
                 return RedirectToAction("Index", "Home");
             }
@@ -120,7 +125,7 @@ namespace TripLog.Controllers
             data.Notes.Delete(note);
             data.Save();
 
-            TempData["message"] = $"Trip to {dest.Name} deleted.";
+            TempData["message"] = $"Note to {dest.Name} deleted.";
             return RedirectToAction("Index", "Home");
         }
     }

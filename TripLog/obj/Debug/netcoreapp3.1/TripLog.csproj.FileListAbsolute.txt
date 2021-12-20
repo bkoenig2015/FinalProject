@@ -239,7 +239,6 @@ C:\Users\Andrew\Documents\GitHub\TripLog\bin\Debug\netcoreapp3.1\runtimes\win-x8
 C:\Users\Andrew\Documents\GitHub\TripLog\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Andrew\Documents\GitHub\TripLog\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 C:\Users\Andrew\Documents\GitHub\TripLog\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\TripLog.csproj.AssemblyReference.cache
 C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\TripLog.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\TripLog.AssemblyInfoInputs.cache
 C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\TripLog.AssemblyInfo.cs
@@ -268,3 +267,4 @@ C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\TripLog.pdb
 C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\TripLog.genruntimeconfig.cache
 C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\Razor\Views\Note\Add1.cshtml.g.cs
 C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\Razor\Views\Note\Add2.cshtml.g.cs
+C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\TripLog.csproj.AssemblyReference.cache

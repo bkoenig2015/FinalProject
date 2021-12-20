@@ -11,7 +11,7 @@ namespace TripLog.Controllers
         public ViewResult Index()
         {
             var options = new QueryOptions<Note> { 
-                Includes = "Category, Title",
+                Includes = "Category",
                 OrderBy = t => t.DateCreated
             };
 

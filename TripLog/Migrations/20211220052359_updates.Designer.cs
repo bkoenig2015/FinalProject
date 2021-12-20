@@ -3,36 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TripLog.Models;
 
 namespace TripLog.Migrations
 {
     [DbContext(typeof(NoteLogContext))]
-    partial class TripLogContextModelSnapshot : ModelSnapshot
+    [Migration("20211220052359_updates")]
+    partial class updates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("NoteApp.Models.DomainModels.Description", b =>
-                {
-                    b.Property<int>("DescriptionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("DescriptionId");
-
-                    b.ToTable("Description");
-                });
 
             modelBuilder.Entity("TripLog.Models.Category", b =>
                 {
@@ -46,7 +33,7 @@ namespace TripLog.Migrations
 
                     b.HasKey("CategoryId");
 
-                    b.ToTable("Destinations");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("TripLog.Models.Note", b =>
@@ -62,40 +49,21 @@ namespace TripLog.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("DescriptionId")
-                        .HasColumnType("int");
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("DueDate")
                         .IsRequired()
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("TitleId")
-                        .HasColumnType("int");
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("NoteId");
 
                     b.HasIndex("CategoryId");
 
-                    b.HasIndex("DescriptionId");
-
-                    b.HasIndex("TitleId");
-
                     b.ToTable("Notes");
-                });
-
-            modelBuilder.Entity("TripLog.Models.Title", b =>
-                {
-                    b.Property<int>("TitleId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("TitleId");
-
-                    b.ToTable("Title");
                 });
 
             modelBuilder.Entity("TripLog.Models.Note", b =>
@@ -105,16 +73,6 @@ namespace TripLog.Migrations
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-
-                    b.HasOne("NoteApp.Models.DomainModels.Description", "Description")
-                        .WithMany("Notes")
-                        .HasForeignKey("DescriptionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("TripLog.Models.Title", "Title")
-                        .WithMany("Notes")
-                        .HasForeignKey("TitleId");
                 });
 #pragma warning restore 612, 618
         }

@@ -28,17 +28,7 @@ namespace TripLog.Controllers
                 notifyMsg = $"{notifyMsg} {vm.Category.Name}, ";
                 needsSave = true;
             }
-            if (!string.IsNullOrEmpty(vm.Title.Name)) {
-                data.Titles.Insert(vm.Title);
-                notifyMsg = $"{notifyMsg} {vm.Title.Name}, ";
-                needsSave = true;
-            }
-            if (!string.IsNullOrEmpty(vm.Description.Name))
-            {
-                data.Descriptions.Insert(vm.Description);
-                notifyMsg = $"{notifyMsg} {vm.Description.Name}, ";
-                needsSave = true;
-            }
+          
             if (needsSave) {
                 data.Save();
                 TempData["message"] = notifyMsg + " added";
@@ -64,6 +54,7 @@ namespace TripLog.Controllers
                 notifyMsg = $"{notifyMsg} {vm.Category.Name}, ";
                 needsSave = true;
             }
+            /*
             if (vm.Title.TitleId > 0) {
                 vm.Title = data.Titles.Get(vm.Title.TitleId);
                 data.Titles.Delete(vm.Title);
@@ -76,7 +67,7 @@ namespace TripLog.Controllers
                 data.Descriptions.Delete(vm.Description);
                 notifyMsg = $"{notifyMsg} {vm.Description.Name}, ";
                 needsSave = true;
-            }
+            }*/
             /**************************************************************************************
              * If try to delete a destination that's associated with a trip, will get an exception,
              * bc FK delete behavior is set to Restrict. No exception for an accommodation, bc FK

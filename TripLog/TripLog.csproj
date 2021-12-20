@@ -19,6 +19,8 @@
     <Compile Remove="Migrations\20200113192952_AddAccommodation.Designer.cs" />
     <Compile Remove="Migrations\20200113193944_AddAccommodation.cs" />
     <Compile Remove="Migrations\20200113193944_AddAccommodation.Designer.cs" />
+    <Compile Remove="Migrations\20211220045134_Testing.cs" />
+    <Compile Remove="Migrations\20211220045134_Testing.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
