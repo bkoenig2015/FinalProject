@@ -9,8 +9,8 @@ namespace TripLog.Models
         { }
 
         public DbSet<Note> Notes { get; set; }
-        public DbSet<Destination> Destinations { get; set; }
-        public DbSet<Accommodation> Accommodations { get; set; }
+        public DbSet<Category> Destinations { get; set; }
+        public DbSet<Title> Title { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

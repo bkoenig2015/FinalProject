@@ -6,6 +6,6 @@
 
         public int PageNumber { get; set; }
         
-        public string DestinationName { get; set; }
+        public string CategoryName { get; set; }
     }
 }

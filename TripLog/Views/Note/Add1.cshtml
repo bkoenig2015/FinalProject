@@ -11,31 +11,27 @@
     <input type="hidden" asp-for="PageNumber" />
 
     <div class="form-group">
-        <label asp-for="Note.DestinationId">Title</label>
-        <a asp-action="Index" asp-controller="Manage" class="ml-4">Manage destinations</a>
-        <select asp-for="Note.DestinationId" class="form-control"
-                asp-items="@(new SelectList(Model.Destinations, "DestinationId", "Name"))">
+        <label asp-for="Note.CategoryId">Title</label>
+        <a asp-action="Index" asp-controller="Manage" class="ml-4">Manage Categories</a>
+        <select asp-for="Note.CategoryId" class="form-control"
+                asp-items="@(new SelectList(Model.Categories, "CategoryId", "Name"))">
             <option value="0"></option>
         </select>
     </div>
 
     <div class="form-group">
-        <label asp-for="Note.AccommodationId">Category</label>
-        <a asp-action="Index" asp-controller="Manage" class="ml-4">Manage accommodations</a>
-        <select asp-for="Note.AccommodationId" class="form-control"
-                asp-items="@(new SelectList(Model.Accommodations, "AccommodationId", "Name"))">
-            <option value="0"></option>
-        </select>
+        <label asp-for="Note.TitleName">Title</label>
+        <input type="text" asp-for="Titles" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Note.StartDate">To be Removed (start)</label>
-        <input type="text" asp-for="Note.StartDate" class="form-control" />
+        <label asp-for="Note.Description">Description</label>
+        <input type="text" asp-for="Titles" class="form-control" />
     </div>
 
     <div class="form-group">
-        <label asp-for="Note.EndDate">Due Date (end)</label>
-        <input type="text" asp-for="Note.EndDate" class="form-control" />
+        <label asp-for="Note.DueDate">Due Date</label>
+        <input type="text" asp-for="Titles" class="form-control" />
     </div>
     <div>
         <button type="submit" class="btn btn-dark">Submit</button>

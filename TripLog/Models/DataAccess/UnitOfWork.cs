@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoteApp.Models.DomainModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,19 +19,29 @@ namespace TripLog.Models
             }
         }
 
-        private Repository<Destination> destinations;
-        public Repository<Destination> Destinations {
+        private Repository<Category> categories;
+        public Repository<Category> Categories {
             get {
-                if (destinations == null) destinations = new Repository<Destination>(context);
-                return destinations;
+                if (categories == null) categories = new Repository<Category>(context);
+                return categories;
             }
         }
 
-        private Repository<Accommodation> accommodations;
-        public Repository<Accommodation> Accommodations {
+        private Repository<Title> titles;
+        public Repository<Title> Titles {
             get {
-                if (accommodations == null) accommodations = new Repository<Accommodation>(context);
-                return accommodations;
+                if (titles == null) titles = new Repository<Title>(context);
+                return titles;
+            }
+        }
+
+        private Repository<Description> descriptions;
+        public Repository<Description> Descriptions
+        {
+            get
+            {
+                if (descriptions == null) descriptions = new Repository<Description>(context);
+                return descriptions;
             }
         }
 

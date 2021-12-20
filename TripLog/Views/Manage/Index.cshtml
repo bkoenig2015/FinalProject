@@ -16,22 +16,8 @@
                 <ul class="list-group">
                     <li class="list-group-item">
                         <div class="form-group">
-                            <label asp-for="Destination.Name">Not needed</label>
-                            <input asp-for="Destination.Name" class="form-control" />
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="form-group">
-                            <label asp-for="Accommodation.Name">Category</label>
-                            <input asp-for="Accommodation.Name" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Accommodation.Phone">Not Needed</label>
-                            <input asp-for="Accommodation.Phone" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <label asp-for="Accommodation.Email">Not Needed</label>
-                            <input asp-for="Accommodation.Email" class="form-control" />
+                            <label asp-for="Category.Name">Category</label>
+                            <input asp-for="Category.Name" class="form-control" />
                         </div>
                     </li>
                 </ul>
@@ -52,24 +38,14 @@
             <ul class="list-group">
                 <li class="list-group-item">
                     <div class="form-group">
-                        <label asp-for="Destination.DestinationId">Not Needed</label>
-                        <select asp-for="Destination.DestinationId" class="form-control"
-                                asp-items="@(new SelectList(Model.Destinations, "DestinationId", "Name"))">
-                            <option></option>
-                        </select>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="form-group">
-                        <label asp-for="Accommodation.AccommodationId">Category</label>
-                        <select asp-for="Accommodation.AccommodationId" class="form-control"
-                                asp-items="@(new SelectList(Model.Accommodations, "AccommodationId", "Name"))">
+                        <label asp-for="Category.CategoryId">Category</label>
+                        <select asp-for="Category.CategoryId" class="form-control"
+                                asp-items="@(new SelectList(Model.Categories, "CategoryId", "Name"))">
                             <option></option>
                         </select>
                     </div>
                 </li>
             </ul>
-
             <button type="submit" class="btn btn-primary mt-2">Delete</button>
         </form>
 

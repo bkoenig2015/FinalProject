@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoteApp.Models.DomainModels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -9,17 +10,20 @@ namespace TripLog.Models
         public int NoteId { get; set; }                     // PK
 
         [Range(1, 9999999, ErrorMessage = "Please select a destination.")]
-        public int DestinationId { get; set; }              // FK 
-        public Destination Destination { get; set; }        // navigation property
+        public int CategoryId { get; set; }              // FK 
+        public Category Category { get; set; }        // navigation property
 
-        [Required(ErrorMessage = "Please enter the date your trip starts.")]
-        public DateTime? StartDate { get; set; }
+        public int DescriptionId { get; set; }
 
-        [Required(ErrorMessage = "Please enter the date your trip ends.")]
-        public DateTime? EndDate { get; set; }
+        public Description Description { get; set; }
 
-        public int? AccommodationId { get; set; }           // FK (nullable)
-        public Accommodation Accommodation { get; set; }    // navigation property
+        public DateTime DateCreated { get; set; }
+
+        [Required(ErrorMessage = "Please enter the date your note is due.")]
+        public DateTime? DueDate { get; set; }
+
+        public int? TitleId { get; set; }          
+        public Title Title { get; set; }    
 
         // navigation property to linking entity for many-to-many with Activity
     }

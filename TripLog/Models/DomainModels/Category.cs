@@ -2,9 +2,9 @@
 
 namespace TripLog.Models
 {
-    public class Destination
+    public class Category
     {
-        public int DestinationId { get; set; }           // PK 
+        public int CategoryId { get; set; }           // PK 
         public string Name { get; set; }
 
         public ICollection<Note> Note { get; set; }     // navigation property

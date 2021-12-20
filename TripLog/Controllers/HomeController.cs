@@ -11,8 +11,8 @@ namespace TripLog.Controllers
         public ViewResult Index()
         {
             var options = new QueryOptions<Note> { 
-                Includes = "Destination, Accommodation",
-                OrderBy = t => t.StartDate
+                Includes = "Category, Title",
+                OrderBy = t => t.DateCreated
             };
 
             var notes = data.List(options);

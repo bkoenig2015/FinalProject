@@ -11,40 +11,32 @@
         <tr>
             <th>Title</th>
             <th>Category</th>
+            <th>Description</th>
             <th>Date Created</th>
             <th>Due Date</th>
-            <th>Description</th>
+
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (Note note in Model)
         {
-            <tr>
-                <td>@note.Destination.Name</td> 
-                <td>@note.StartDate?.ToShortDateString()</td>
-                <td>@note.EndDate?.ToShortDateString()</td>
-                <td>
-                    @if (note.Accommodation != null)
-                    {
-                        <div>@note.Accommodation.Name</div>
-                        @if (!string.IsNullOrEmpty(note.Accommodation.Phone))
-                        {
-                            <div>Phone: @note.Accommodation.Phone</div>
-                        }
-                        @if (!string.IsNullOrEmpty(note.Accommodation.Email))
-                        {
-                            <div>Email: @note.Accommodation.Email</div>
-                        }
-                    }
-                </td>
-                <td>
-                    <form asp-action="Delete" asp-controller="Note">
-                         <button type="submit" name="id" value="@note.NoteId" 
-                                 class="btn btn-primary">Delete</button>
-                    </form>
-                </td>
-            </tr>
+        <tr>
+            <td>@note.Title</td>
+            <td>@note.Category.Name</td>
+            <td>@note.Description.Name</td>
+            <td>@note.DateCreated.ToShortDateString()</td>
+            <td>@note.DueDate?.ToShortDateString()</td>
+
+            <td>
+                <form asp-action="Delete" asp-controller="Note">
+                    <button type="submit" name="id" value="@note.NoteId"
+                            class="btn btn-primary">
+                        Delete
+                    </button>
+                </form>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

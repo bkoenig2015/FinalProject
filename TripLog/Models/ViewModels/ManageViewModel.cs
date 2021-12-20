@@ -1,8 +1,11 @@
-﻿namespace TripLog.Models
+﻿using NoteApp.Models.DomainModels;
+
+namespace TripLog.Models
 {
     public class ManageViewModel : DropDownViewModel
     {
-        public Destination Destination { get; set; }
-        public Accommodation Accommodation { get; set; }
-    }
+        public Category Category { get; set; }
+        public Title Title { get; set; }
+        public Description Description { get; set; }
+    } 
 }
