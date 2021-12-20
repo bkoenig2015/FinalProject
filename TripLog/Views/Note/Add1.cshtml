@@ -11,7 +11,7 @@
     <input type="hidden" asp-for="PageNumber" />
 
     <div class="form-group">
-        <label asp-for="Note.CategoryId">Title</label>
+        <label asp-for="Note.CategoryId">Category</label>
         <a asp-action="Index" asp-controller="Manage" class="ml-4">Manage Categories</a>
         <select asp-for="Note.CategoryId" class="form-control"
                 asp-items="@(new SelectList(Model.Categories, "CategoryId", "Name"))">
@@ -30,8 +30,13 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="Note.DueDate">Due Date</label>
+        <label asp-for="Note.DueDate">Date to be done by</label>
         <input type="text" asp-for="Note.DueDate" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Note.DateCreated">Date Created</label>
+        <input type="text" asp-for="Note.DateCreated" class="form-control" />
     </div>
     <div>
         <button type="submit" class="btn btn-dark">Submit</button>
