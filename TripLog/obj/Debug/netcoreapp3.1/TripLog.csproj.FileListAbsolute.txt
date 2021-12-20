@@ -267,3 +267,4 @@ C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\TripLog.dll
 C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\TripLog.pdb
 C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\TripLog.genruntimeconfig.cache
 C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\Razor\Views\Note\Add1.cshtml.g.cs
+C:\Users\Andrew\Documents\GitHub\TripLog\obj\Debug\netcoreapp3.1\Razor\Views\Note\Add2.cshtml.g.cs

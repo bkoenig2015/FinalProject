@@ -1,0 +1,17 @@
+﻿@model NoteViewModel
+
+@{
+    ViewBag.Title = "Add Note - Page 2";
+    ViewBag.SubHeader = $"Add Things To Do in {Model.DestinationName}";
+}
+
+<form asp-action="Add">
+    <input type="hidden" asp-for="PageNumber" />
+
+    
+
+    <div>
+        <button type="submit" class="btn btn-dark">Save</button>
+        <a asp-action="Cancel" class="btn btn-outline-dark">Cancel</a>
+    </div>
+</form>
