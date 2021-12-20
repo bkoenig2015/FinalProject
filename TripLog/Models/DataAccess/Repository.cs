@@ -2,7 +2,7 @@
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 
-namespace TripLog.Models
+namespace NoteApp.Models
 {
     public class Repository<T> : IRepository<T> where T : class
     {

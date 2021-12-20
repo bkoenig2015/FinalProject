@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TripLog.Migrations
+namespace NoteApp.Migrations
 {
     public partial class updates : Migration
     {

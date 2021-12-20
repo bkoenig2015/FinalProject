@@ -14,20 +14,20 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
 #line 1 "C:\Users\Andrew\Documents\GitHub\TripLog\Views\_ViewImports.cshtml"
-using TripLog;
+using NoteApp;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\Andrew\Documents\GitHub\TripLog\Views\_ViewImports.cshtml"
-using TripLog.Models;
+using NoteApp.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8b761eee9449d3db2cc45225ef96baddff237fe1", @"/Views/Note/Add2.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3df7861767a61fb2be61134ada4d1586af4acbc3", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"3de87266408374ba125367c077f7dd12757be4a8", @"/Views/_ViewImports.cshtml")]
     public class Views_Note_Add2 : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<NoteViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("type", "hidden", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

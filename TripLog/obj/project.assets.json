@@ -8281,9 +8281,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Andrew\\Documents\\GitHub\\TripLog\\TripLog.csproj",
-      "projectName": "TripLog",
-      "projectPath": "C:\\Users\\Andrew\\Documents\\GitHub\\TripLog\\TripLog.csproj",
+      "projectUniqueName": "C:\\Users\\Andrew\\Documents\\GitHub\\TripLog\\NoteApp.csproj",
+      "projectName": "NoteApp",
+      "projectPath": "C:\\Users\\Andrew\\Documents\\GitHub\\TripLog\\NoteApp.csproj",
       "packagesPath": "C:\\Users\\Andrew\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Andrew\\Documents\\GitHub\\TripLog\\obj\\",
       "projectStyle": "PackageReference",

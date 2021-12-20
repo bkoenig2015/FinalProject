@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XWt2YtgM/JsIeBkq1dS536Z/wcBzy1cdb3snza3CdGw+zHImBO5mHwIDFBM7RMx+gUB3PRlAGANT6IzdNkTHdQ==",
+  "dgSpecHash": "p2/nd/WOhMdlYCXQ0kA4u1mIpLCJ79NU8R1fYnRer1XfvGsbUvUB7EZlglr6RB7e6yWP/HYE3+BiIlA/+25nNA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Andrew\\Documents\\GitHub\\TripLog\\TripLog.csproj",
+  "projectFilePath": "C:\\Users\\Andrew\\Documents\\GitHub\\TripLog\\NoteApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Andrew\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\Andrew\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.0\\microsoft.aspnetcore.jsonpatch.3.1.0.nupkg.sha512",

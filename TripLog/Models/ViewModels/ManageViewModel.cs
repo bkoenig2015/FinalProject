@@ -1,5 +1,5 @@
 ﻿
-namespace TripLog.Models
+namespace NoteApp.Models
 {
     public class ManageViewModel : DropDownViewModel
     {

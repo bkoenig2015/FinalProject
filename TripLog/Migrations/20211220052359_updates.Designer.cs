@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TripLog.Models;
+using NoteApp.Models;
 
-namespace TripLog.Migrations
+namespace NoteApp.Migrations
 {
     [DbContext(typeof(NoteLogContext))]
     [Migration("20211220052359_updates")]

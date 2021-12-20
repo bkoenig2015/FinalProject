@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace TripLog.Models
+namespace NoteApp.Models
 {
     internal class NoteConfig : IEntityTypeConfiguration<Note>
     {

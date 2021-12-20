@@ -1,8 +1,8 @@
 ﻿using System;
 using Microsoft.AspNetCore.Mvc;
-using TripLog.Models;
+using NoteApp.Models;
 
-namespace TripLog.Controllers
+namespace NoteApp.Controllers
 {
     public class ManageController : Controller
     {

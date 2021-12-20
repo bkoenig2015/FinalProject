@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace TripLog.Models
+namespace NoteApp.Models
 {
     public class QueryOptions<T>
     {

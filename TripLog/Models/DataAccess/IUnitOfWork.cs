@@ -1,4 +1,4 @@
-﻿namespace TripLog.Models
+﻿namespace NoteApp.Models
 {
     public interface IUnitOfWork
     {

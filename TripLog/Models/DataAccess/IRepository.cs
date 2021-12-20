@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TripLog.Models
+namespace NoteApp.Models
 {
     public interface IRepository<T>
     {

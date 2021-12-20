@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace TripLog.Models
+namespace NoteApp.Models
 {
     public class NoteLogContext : DbContext
     {

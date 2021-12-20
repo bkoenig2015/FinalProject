@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
-using TripLog.Models;
+using NoteApp.Models;
 
-namespace TripLog.Controllers
+namespace NoteApp.Controllers
 {
     public class NoteController : Controller
     {

@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace TripLog.Models
+namespace NoteApp.Models
 {
     public class Note
     {
